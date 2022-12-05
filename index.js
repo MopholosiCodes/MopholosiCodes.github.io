@@ -41,9 +41,13 @@ const game = () => {
         if (playerSelection === "1" || playerSelection.trim().toLowerCase() === "rock") playerSelection = ROCK;
         else if (playerSelection === "2" || playerSelection.trim().toLowerCase() === "paper") playerSelection = PAPER;
         else if (playerSelection === "3" || playerSelection.trim().toLowerCase() === "scissors") playerSelection = SCISSORS;
+        else if (playerSelection === "") {
+            round--;
+            alert("Empty input!");
+        }
         else {
             round--;
-            alert("invalid or input!");
+            alert("invalid input!");
         }
 
         console.log(playRound(playerSelection, computerPlay()));
