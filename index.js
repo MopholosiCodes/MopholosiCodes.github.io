@@ -43,7 +43,7 @@ const game = () => {
         else if (playerSelection === "3" || playerSelection.trim().toLowerCase() === "scissors") playerSelection = SCISSORS;
         else {
             round--;
-            console.log("invalid input!");
+            alert("invalid or input!");
         }
 
         console.log(playRound(playerSelection, computerPlay()));
