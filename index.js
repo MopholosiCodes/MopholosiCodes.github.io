@@ -32,16 +32,14 @@ const playRound = (playerSelection, computerSelection) => {
     } else return;
 }
 
-const game = () => {
-    console.log("\n \t ------ ROCK, PAPER, SCISSORS ------ \n");
-
+const handleInput = () => {
     for (let round = 1; round < 6; round++) {
         let playerSelection = prompt("Enter your option: \n 1. ROCK \n 2. PAPER \n 3. SCISSORS");
 
         if (playerSelection === "1" || playerSelection.trim().toLowerCase() === "rock") playerSelection = ROCK;
         else if (playerSelection === "2" || playerSelection.trim().toLowerCase() === "paper") playerSelection = PAPER;
         else if (playerSelection === "3" || playerSelection.trim().toLowerCase() === "scissors") playerSelection = SCISSORS;
-        else if (playerSelection === "") {
+        else if (playerSelection === " ") {
             round--;
             alert("Empty input!");
         }
@@ -52,7 +50,11 @@ const game = () => {
 
         console.log(playRound(playerSelection, computerPlay()));
     }
+}
 
+const game = () => {
+    console.log("\n \t ------ ROCK, PAPER, SCISSORS ------ \n");
+    handleInput()
     alert(`Overall score: \n \t Wins: ${win} \n \t Losses: ${loss} \n \t Draw: ${draw}`)
 }
 
