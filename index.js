@@ -38,9 +38,9 @@ const game = () => {
     for (let round = 1; round < 6; round++) {
         let playerSelection = prompt("Enter your option: \n 1. ROCK \n 2. PAPER \n 3. SCISSORS");
 
-        if (playerSelection === "1") playerSelection = ROCK;
-        else if (playerSelection === "2") playerSelection = PAPER;
-        else if (playerSelection === "3") playerSelection = SCISSORS;
+        if (playerSelection === "1" || playerSelection.trim().toLowerCase() === "rock") playerSelection = ROCK;
+        else if (playerSelection === "2" || playerSelection.trim().toLowerCase() === "paper") playerSelection = PAPER;
+        else if (playerSelection === "3" || playerSelection.trim().toLowerCase() === "scissors") playerSelection = SCISSORS;
         else {
             round--;
             console.log("invalid input!");
