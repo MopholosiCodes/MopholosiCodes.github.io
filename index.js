@@ -36,13 +36,15 @@ const game = () => {
     console.log("\n \t ------ ROCK, PAPER, SCISSORS ------ \n");
 
     for (let round = 1; round < 6; round++) {
-        console.log(`--- Round ${round} ---`)
         let playerSelection = prompt("Enter your option: \n 1. ROCK \n 2. PAPER \n 3. SCISSORS");
 
         if (playerSelection === "1") playerSelection = ROCK;
         else if (playerSelection === "2") playerSelection = PAPER;
         else if (playerSelection === "3") playerSelection = SCISSORS;
-        else return
+        else {
+            round--;
+            console.log1("invalid input!");
+        }
 
         console.log(playRound(playerSelection, computerPlay()));
     }
