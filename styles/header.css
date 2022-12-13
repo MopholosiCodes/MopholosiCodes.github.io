@@ -1,0 +1,99 @@
+@font-face {
+    font-family:"Roboto-Black";
+    src: url(./fonts/Roboto/Roboto-Black.ttf);
+}
+
+@font-face {
+    font-family: "Roboto-Blackitalic";
+    src: url(./fonts/Roboto/Roboto-BlackItalic.ttf)
+}
+
+@font-face {
+    font-family: "Roboto-Bold";
+    src: url(./fonts/Roboto/Roboto-Bold.ttf);
+}
+
+@font-face {
+    font-family: "Roboto-BoldItalic";
+    src: url(./fonts/Roboto/Roboto-BoldItalic.ttf);
+}
+
+@font-face {
+    font-family: "Roboto-Italic";
+    src: url(./fonts/Roboto/Roboto-Italic.ttf);
+}
+
+@font-face {
+    font-family: "Roboto-Light";
+    src: url(./fonts/Roboto/Roboto-Light.ttf);
+}
+
+@font-face {
+    font-family: "Roboto-LightItalic";
+    src: url(./fonts/Roboto/Roboto-LightItalic.ttf);
+}
+
+@font-face {
+    font-family: "Roboto-Medium";
+    src: url(./fonts/Roboto/Roboto-Medium.ttf);
+}
+
+@font-face {
+    font-family: "Roboto-MediumItalic";
+    src: url(./fonts/Roboto/Roboto-MediumItalic.ttf);
+}
+
+@font-face {
+    font-family: "Roboto-Regular";
+    src: url(./fonts/Roboto/Roboto-Regular.ttf);
+}
+
+@font-face {
+    font-family: "Roboto-Thin";
+    src: url(./fonts/Roboto/Roboto-Thin.ttf);
+}
+
+@font-face {
+    font-family: "Roboto-ThinItalic";
+    src: url(./fonts/Roboto/Roboto-ThinItalic.ttf);
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 15vh;
+    background-color: #1f2937 ;
+}
+
+.link-container {
+    flex: 1;
+    display: flex;
+    justify-content: space-around;
+    list-style: none;
+}
+
+header ul li :hover {
+    animation: 3s ease-in;
+    color: #3882f6;
+}
+
+.logo-container {
+    flex: 1;
+    display: flex;
+    justify-content: space-around;
+}
+
+.logo-text {
+    font-family: "Roboto-Bold", sans-serif;
+    font-size: 24px;
+    color: #F9FAF8;
+    text-decoration: none;
+}
+
+.link, 
+header ul li a {
+    font-family: "Roboto-Medium", sans-serif;
+    color: #F9FAF8;;
+    text-decoration: none;
+}
