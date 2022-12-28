@@ -21,7 +21,7 @@
 .hero-section {
     background-color: #1f2937;
     display: flex;
-    height: 60vh;
+    height: 70vh;
 }
 
 .content-container {
@@ -71,6 +71,12 @@ button {
     display: flex;
 }
 
+span button a {
+    font-style: none;
+    color: #F9FAF8;
+    text-decoration: none;
+}
+
 .image-container {
     flex: 1;
     align-self: center;
@@ -80,7 +86,7 @@ button {
 
 .image-container img {
     width: 500px;
-    height: 250px;
+    height:380px;
     border-radius: 10px;
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
@@ -121,7 +127,7 @@ button {
 
 article img {
     height: 200px;
-    width: 150px;
+    width: 200px;
     padding: 10px;
 }
 
@@ -135,6 +141,12 @@ article img {
 .card-img {
     border-radius: 10px;
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+article p a {
+    font-style: none;
+    color: black;
+    text-decoration: none;
 }
 
 .testimonial {
