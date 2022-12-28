@@ -84,7 +84,7 @@ span button a {
     justify-content: flex-start;
 }
 
-.image-container img {
+.hero-img {
     width: 500px;
     height:380px;
     border-radius: 10px;
