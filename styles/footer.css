@@ -9,8 +9,18 @@ footer {
     background-color: #1f2937;
     color: #F9FAF8;
     display: flex;
-    justify-content: center;
+    justify-content: space-around;
     align-items: center;
+}
+
+footer p a {
+    text-decoration: none;
+    color: #F9FAF8;
+}
+
+footer p a:hover {
+    text-decoration: none;
+    color: rgb(76, 76, 244);
 }
 
 .floating-button {
