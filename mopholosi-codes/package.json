@@ -1,7 +1,7 @@
 {
   "name": "mopholosi-codes",
   "version": "0.1.0",
-  "homepage": "https://MopholosiCodes.github.io/MopholosiCodes.github.io",
+  "homepage": "https://MopholosiCodes.github.io/mopholosi-codes",
   "private": true,
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.5",
