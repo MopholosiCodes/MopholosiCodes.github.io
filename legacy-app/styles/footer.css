@@ -1,0 +1,35 @@
+@font-face {
+    font-family: "Roboto-Regular";
+    src: url(./fonts/Roboto/Roboto-Regular.ttf);
+}
+
+footer {
+    font-family: "Roboto-Regular", sans-serif;
+    height: 15vh;
+    background-color: #1f2937;
+    color: #F9FAF8;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+footer p a {
+    text-decoration: none;
+    color: #F9FAF8;
+}
+
+footer p a:hover {
+    text-decoration: none;
+    color: rgb(76, 76, 244);
+}
+
+.floating-button {
+    position:fixed;
+    right: 10px;
+    bottom: 10px;
+    background-color: #1f2937;
+    padding: 8px 20px 8px 20px;
+    border-radius: 5px;
+    color: #F9FAF8;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
