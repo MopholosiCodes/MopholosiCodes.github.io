@@ -13,7 +13,7 @@ header {
     justify-content: space-between;
     align-items: center;
     height: 15vh;
-    background-color: #1f2937 ;
+    background-color: #1f2937;
 }
 
 .link-container {
@@ -24,8 +24,10 @@ header {
 }
 
 header ul li :hover {
-    animation: 3s ease-in;
-    color: #3882f6;
+    cursor: pointer;
+    /* animation: 3s ease-in; */
+    /* color: #3882f6; */
+
 }
 
 .logo-container {
@@ -37,13 +39,20 @@ header ul li :hover {
 .logo-text {
     font-family: "Roboto-Bold", sans-serif;
     font-size: 24px;
+    font-weight: 800;
     color: #F9FAF8;
     text-decoration: none;
 }
 
-.link, 
+.link,
 header ul li a {
     font-family: "Roboto-Medium", sans-serif;
-    color: #F9FAF8;;
+    color: #F9FAF8;
     text-decoration: none;
+}
+
+.link-container a li code,
+footer p a code {
+    font-size: 16px;
+    font-weight: 200;
 }

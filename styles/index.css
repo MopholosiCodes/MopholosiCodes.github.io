@@ -18,6 +18,10 @@
     padding: 0%;
 }
 
+a {
+    text-decoration: none;
+}
+
 .hero-section {
     background-color: #1f2937;
     display: flex;
@@ -46,8 +50,10 @@
 }
 
 .hero-content {
-    font-family: "Roboto-Regular", sans-serif;
+    font-family: "Roboto-Regular";
+    font-weight: 0;
     font-size: 18px;
+    line-height: 20px;
     color: #e5e7eb;
     width: 400px;
 }
@@ -60,6 +66,10 @@ button {
 .button-container {
     display: flex;
     flex-shrink: 3;
+}
+
+.button-container :hover {
+    cursor: pointer;
 }
 
 .hero-button {
@@ -86,7 +96,7 @@ span button a {
 
 .hero-img {
     width: 500px;
-    height:380px;
+    height: 380px;
     border-radius: 10px;
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
@@ -97,6 +107,7 @@ span button a {
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    margin: 8px 8px 8px 8px;
 }
 
 .infoHeader-container {
@@ -109,7 +120,7 @@ span button a {
     font: 36px;
     font-family: "Roboto-Bold", sans-serif;
     font-weight: bolder;
-    color: #1f2937;
+    color: #2d394a;
     align-self: center;
 }
 
@@ -136,11 +147,18 @@ article img {
     text-align: center;
     padding: 10px;
     width: 40vh;
+    margin-top: 15px;
+    line-height: 20px;
 }
 
 .card-img {
     border-radius: 10px;
-    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 2px 8px;
+}
+
+.card-img:hover {
+    animation: 20s ease-in-out;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 18px;
 }
 
 article p a {
@@ -200,7 +218,12 @@ p.testimonial {
     display: flex;
 }
 
-.action-button a {
+a .action-button {
     text-decoration: none;
     color: #F9FAF8;
+}
+
+a .action-button:hover,
+#home a .floating-button {
+    cursor: pointer;
 }
