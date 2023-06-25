@@ -3,11 +3,17 @@
     src: url(./fonts/Roboto/Roboto-Regular.ttf);
 }
 
+body {
+    --white: #F9FAF8;
+    --shadow: rgba(0, 0, 0, 0.35);
+    --darkBlue: #1f2937;
+}
+
 footer {
     font-family: "Roboto-Regular", sans-serif;
     height: 15vh;
-    background-color: #1f2937;
-    color: #F9FAF8;
+    background-color: var(--darkBlue);
+    color: var(--white);
     display: flex;
     justify-content: space-around;
     align-items: center;
@@ -15,7 +21,7 @@ footer {
 
 footer a p {
     text-decoration: none;
-    color: #F9FAF8;
+    color: var(--white);
     font-size: 16px;
     font-weight: 200;
 }
@@ -23,16 +29,15 @@ footer a p {
 footer a p:hover {
     cursor: pointer;
     text-decoration: none;
-    /* color: rgb(76, 76, 244); */
 }
 
 .floating-button {
     position: fixed;
     right: 10px;
     bottom: 10px;
-    background-color: #1f2937;
+    background-color: var(--darkBlue);
     padding: 8px 20px 8px 20px;
     border-radius: 5px;
-    color: #F9FAF8;
-    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    color: var(--white);
+    box-shadow: var(--shadow) 0px 5px 15px;
 }

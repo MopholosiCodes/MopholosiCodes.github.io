@@ -8,12 +8,17 @@
     src: url(./fonts/Roboto/Roboto-Medium.ttf);
 }
 
+body {
+    --darkBlue: #1f2937;
+    --white: #F9FAF8;
+}
+
 header {
     display: flex;
     justify-content: space-between;
     align-items: center;
     height: 15vh;
-    background-color: #1f2937;
+    background-color: var(--darkBlue);
 }
 
 .link-container {
@@ -25,9 +30,6 @@ header {
 
 header ul li :hover {
     cursor: pointer;
-    /* animation: 3s ease-in; */
-    /* color: #3882f6; */
-
 }
 
 .logo-container {
@@ -40,14 +42,14 @@ header ul li :hover {
     font-family: "Roboto-Bold", sans-serif;
     font-size: 24px;
     font-weight: 800;
-    color: #F9FAF8;
+    color: var(--white);
     text-decoration: none;
 }
 
 .link,
 header ul li a {
     font-family: "Roboto-Medium", sans-serif;
-    color: #F9FAF8;
+    color: var(--white);
     text-decoration: none;
 }
 
