@@ -179,29 +179,69 @@
         // Create particles
         const geometry = new THREE.BufferGeometry();
         const vertices = [];
+        const colors = [];
         
-        for (let i = 0; i < 1000; i++) {
+        for (let i = 0; i < 2000; i++) {
             vertices.push(
-                Math.random() * 20 - 10,
-                Math.random() * 20 - 10,
-                Math.random() * 20 - 10
+                Math.random() * 40 - 20,
+                Math.random() * 40 - 20,
+                Math.random() * 40 - 20
             );
+            
+            // Add some color variation
+            const color = new THREE.Color();
+            color.setHSL(Math.random() * 0.2 + 0.5, 0.5, 0.7);
+            colors.push(color.r, color.g, color.b);
         }
         
         geometry.setAttribute('position', new THREE.Float32BufferAttribute(vertices, 3));
+        geometry.setAttribute('color', new THREE.Float32BufferAttribute(colors, 3));
         
         const material = new THREE.PointsMaterial({
-            color: 0x888888,
-            size: 0.05
+            size: 0.08,
+            vertexColors: true,
+            transparent: true,
+            opacity: 0.8
         });
         
         const particles = new THREE.Points(geometry, material);
         scene.add(particles);
         
+        // Mouse interaction
+        let mouseX = 0;
+        let mouseY = 0;
+        let targetRotationX = 0;
+        let targetRotationY = 0;
+        
+        document.addEventListener('mousemove', (e) => {
+            mouseX = (e.clientX / window.innerWidth) * 2 - 1;
+            mouseY = -(e.clientY / window.innerHeight) * 2 + 1;
+        });
+        
+        // Scroll interaction
+        const container = document.querySelector('.container');
+        let scrollY = 0;
+        
+        container.addEventListener('scroll', () => {
+            scrollY = container.scrollTop;
+        });
+        
         function animate() {
             requestAnimationFrame(animate);
-            particles.rotation.x += 0.0003;
-            particles.rotation.y += 0.0005;
+            
+            // Smooth rotation based on mouse position
+            targetRotationY = mouseX * 0.5;
+            targetRotationX = mouseY * 0.3;
+            
+            particles.rotation.y += (targetRotationY - particles.rotation.y) * 0.05;
+            particles.rotation.x += (targetRotationX - particles.rotation.x) * 0.05;
+            
+            // Add scroll-based movement
+            particles.position.y = (scrollY * 0.002) % 10;
+            
+            // Continuous slow rotation
+            particles.rotation.z += 0.0002;
+            
             renderer.render(scene, camera);
         }
         
