@@ -294,6 +294,468 @@
                 }
             });
         }, { threshold: 0.5 });
+        <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movie Producer Portfolio</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: Arial, sans-serif;
+            background: #000;
+            color: #fff;
+            overflow-x: hidden;
+        }
+        
+        #three-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+        }
+        
+        .container {
+            position: relative;
+            z-index: 1;
+            height: 100vh;
+            overflow-y: scroll;
+            scroll-snap-type: y mandatory;
+        }
+        
+        .landing-section {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            scroll-snap-align: start;
+            position: relative;
+        }
+        
+        .landing-title {
+            font-size: 6em;
+            font-weight: bold;
+            margin-bottom: 20px;
+            opacity: 0;
+            transform: translateY(50px);
+            animation: fadeInUp 1.5s ease forwards;
+            letter-spacing: 10px;
+            text-transform: uppercase;
+        }
+        
+        .landing-subtitle {
+            font-size: 1.5em;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 1.5s ease 0.5s forwards;
+            letter-spacing: 3px;
+            color: #aaa;
+        }
+        
+        .scroll-indicator {
+            position: absolute;
+            bottom: 50px;
+            opacity: 0;
+            animation: fadeInUp 1.5s ease 1s forwards, bounce 2s ease infinite 2.5s;
+        }
+        
+        .scroll-indicator::after {
+            content: '↓';
+            font-size: 3em;
+            display: block;
+        }
+        
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+        }
+        
+        .video-section {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            scroll-snap-align: start;
+        }
+        
+        .video-card {
+            max-width: 900px;
+            width: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.8);
+            opacity: 0;
+            transform: scale(0.8);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+        
+        .video-section.active .video-card {
+            opacity: 1;
+            transform: scale(1);
+        }
+        
+        .video-wrapper {
+            position: relative;
+        }
+        
+        video {
+            width: 100%;
+            display: block;
+        }
+        
+        .video-info {
+            padding: 30px;
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.9), transparent);
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+        }
+        
+        h2 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+        
+        p {
+            font-size: 1.1em;
+            opacity: 0.8;
+            margin-bottom: 5px;
+        }
+        
+        .meta {
+            font-size: 0.9em;
+            opacity: 0.6;
+        }
+        
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        
+        ::-webkit-scrollbar-track {
+            background: #111;
+        }
+        
+        ::-webkit-scrollbar-thumb {
+            background: #555;
+            border-radius: 4px;
+        }
+
+        @media (max-width: 768px) {
+            .landing-title {
+                font-size: 3em;
+                letter-spacing: 5px;
+            }
+            
+            .landing-subtitle {
+                font-size: 1.2em;
+            }
+            
+            h2 {
+                font-size: 1.8em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <canvas id="three-bg"></canvas>
+    
+    <div class="container">
+        <!-- Landing Section -->
+        <section class="landing-section">
+            <h1 class="landing-title">CINEMATIC</h1>
+            <p class="landing-subtitle">Oratile LEJUICE Thole</p>
+            <p class="landing-subtitle" style="margin-top: 10px; font-size: 1.2em;">Film Producer Show Reel</p>
+            <div class="scroll-indicator"></div>
+        </section>
+
+        <!-- Video Sections -->
+        <section class="video-section">
+            <div class="video-card">
+                <div class="video-wrapper">
+                    <video loop muted playsinline>
+                        <source src="./assets/Addidas.mp4" type="video/mp4">
+                    </video>
+                    <div class="video-info">
+                        <h2>Adidas Commercial</h2>
+                        <p>Athletic excellence and innovation</p>
+                        <p class="meta">2026 • Commercial</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Commented out until videos are uploaded
+        <section class="video-section">
+            <div class="video-card">
+                <div class="video-wrapper">
+                    <video loop muted playsinline>
+                        <source src="./assets/Unseen 2.mp4" type="video/mp4">
+                    </video>
+                    <div class="video-info">
+                        <h2>Unseen 2 (Netflix)</h2>
+                        <p>Discovering the hidden perspectives</p>
+                        <p class="meta">2026 • Short Film</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="video-section">
+            <div class="video-card">
+                <div class="video-wrapper">
+                    <video loop muted playsinline>
+                        <source src="./assets/kfc.mp4" type="video/mp4">
+                    </video>
+                    <div class="video-info">
+                        <h2>KFC Commercial</h2>
+                        <p>Finger lickin' good storytelling</p>
+                        <p class="meta">2026 • Commercial</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="video-section">
+            <div class="video-card">
+                <div class="video-wrapper">
+                    <video loop muted playsinline>
+                        <source src="./assets/Samsung.mp4" type="video/mp4">
+                    </video>
+                    <div class="video-info">
+                        <h2>Samsung Commercial</h2>
+                        <p>Innovation meets imagination</p>
+                        <p class="meta">2026 • Tech</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="video-section">
+            <div class="video-card">
+                <div class="video-wrapper">
+                    <video loop muted playsinline>
+                        <source src="./assets/nescafe.mp4" type="video/mp4">
+                    </video>
+                    <div class="video-info">
+                        <h2>Nescafé Commercial</h2>
+                        <p>Awakening moments, one cup at a time</p>
+                        <p class="meta">2026 • Commercial</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="video-section">
+            <div class="video-card">
+                <div class="video-wrapper">
+                    <video loop muted playsinline>
+                        <source src="./assets/woman king.mp4" type="video/mp4">
+                    </video>
+                    <div class="video-info">
+                        <h2>Woman King (Stills)</h2>
+                        <p>Powerful stories of strength and resilience</p>
+                        <p class="meta">2026 • Drama</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="video-section">
+            <div class="video-card">
+                <div class="video-wrapper">
+                    <video loop muted playsinline>
+                        <source src="./assets/fashion reel.mp4" type="video/mp4">
+                    </video>
+                    <div class="video-info">
+                        <h2>Oratile Thole (Fashion Reel)</h2>
+                        <p>Style and elegance in motion</p>
+                        <p class="meta">2026 • Fashion</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        -->
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script>
+        // Three.js background
+        const scene = new THREE.Scene();
+        const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+        const renderer = new THREE.WebGLRenderer({ canvas: document.getElementById('three-bg'), alpha: true });
+        
+        renderer.setSize(window.innerWidth, window.innerHeight);
+        camera.position.z = 5;
+        
+        // Create particles
+        const geometry = new THREE.BufferGeometry();
+        const vertices = [];
+        const colors = [];
+        
+        for (let i = 0; i < 2000; i++) {
+            vertices.push(
+                Math.random() * 40 - 20,
+                Math.random() * 40 - 20,
+                Math.random() * 40 - 20
+            );
+            
+            // Add some color variation
+            const color = new THREE.Color();
+            color.setHSL(Math.random() * 0.2 + 0.5, 0.5, 0.7);
+            colors.push(color.r, color.g, color.b);
+        }
+        
+        geometry.setAttribute('position', new THREE.Float32BufferAttribute(vertices, 3));
+        geometry.setAttribute('color', new THREE.Float32BufferAttribute(colors, 3));
+        
+        const material = new THREE.PointsMaterial({
+            size: 0.08,
+            vertexColors: true,
+            transparent: true,
+            opacity: 0.8
+        });
+        
+        const particles = new THREE.Points(geometry, material);
+        scene.add(particles);
+        
+        // Mouse and touch interaction
+        let mouseX = 0;
+        let mouseY = 0;
+        let targetRotationX = 0;
+        let targetRotationY = 0;
+        
+        // Mouse movement
+        document.addEventListener('mousemove', (e) => {
+            mouseX = (e.clientX / window.innerWidth) * 2 - 1;
+            mouseY = -(e.clientY / window.innerHeight) * 2 + 1;
+        });
+        
+        // Touch movement for mobile
+        document.addEventListener('touchmove', (e) => {
+            if (e.touches.length > 0) {
+                mouseX = (e.touches[0].clientX / window.innerWidth) * 2 - 1;
+                mouseY = -(e.touches[0].clientY / window.innerHeight) * 2 + 1;
+            }
+        });
+        
+        // Device orientation for mobile (gyroscope)
+        if (window.DeviceOrientationEvent) {
+            window.addEventListener('deviceorientation', (e) => {
+                if (e.gamma !== null && e.beta !== null) {
+                    // gamma: left to right tilt (-90 to 90)
+                    // beta: front to back tilt (-180 to 180)
+                    mouseX = (e.gamma / 90) * 0.5;
+                    mouseY = (e.beta / 180) * 0.5;
+                }
+            });
+        }
+        
+        // Scroll interaction
+        const container = document.querySelector('.container');
+        let scrollY = 0;
+        let currentSection = 0;
+        const totalSections = 2; // 1 landing + 1 video (rest commented out)
+        
+        container.addEventListener('scroll', () => {
+            scrollY = container.scrollTop;
+            
+            // Calculate current section
+            const sectionHeight = window.innerHeight;
+            const newSection = Math.round(scrollY / sectionHeight);
+            
+            if (newSection !== currentSection) {
+                currentSection = newSection;
+                updateSectionVisibility();
+            }
+        });
+        
+        function updateSectionVisibility() {
+            const videoSections = document.querySelectorAll('.video-section');
+            videoSections.forEach((section, index) => {
+                if (index === currentSection - 1) {
+                    section.classList.add('active');
+                } else {
+                    section.classList.remove('active');
+                }
+            });
+        }
+        
+        function animate() {
+            requestAnimationFrame(animate);
+            
+            // Calculate transition progress (0 to 1)
+            const sectionHeight = window.innerHeight;
+            const sectionProgress = (scrollY % sectionHeight) / sectionHeight;
+            
+            // Smooth rotation based on mouse position
+            targetRotationY = mouseX * 0.5;
+            targetRotationX = mouseY * 0.3;
+            
+            particles.rotation.y += (targetRotationY - particles.rotation.y) * 0.05;
+            particles.rotation.x += (targetRotationX - particles.rotation.x) * 0.05;
+            
+            // Camera zoom effect during transitions
+            if (currentSection === 0) {
+                // Landing page - stars far away
+                camera.position.z = 5 - (sectionProgress * 2);
+            } else {
+                // Video sections - stars closer
+                camera.position.z = 3 + (Math.sin(sectionProgress * Math.PI) * 0.5);
+            }
+            
+            // Add scroll-based movement
+            particles.position.y = (scrollY * 0.003) % 10;
+            
+            // Gentle continuous rotation
+            particles.rotation.z += 0.0002;
+            
+            // Color shift based on section
+            const hueShift = currentSection * 0.1;
+            material.opacity = 0.6 + Math.sin(Date.now() * 0.001 + hueShift) * 0.2;
+            
+            renderer.render(scene, camera);
+        }
+        
+        animate();
+        
+        window.addEventListener('resize', () => {
+            camera.aspect = window.innerWidth / window.innerHeight;
+            camera.updateProjectionMatrix();
+            renderer.setSize(window.innerWidth, window.innerHeight);
+        });
+        
+        // Video auto-play on scroll
+        const videos = document.querySelectorAll('video');
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.play();
+                } else {
+                    entry.target.pause();
+                }
+            });
+        }, { threshold: 0.5 });
         
         videos.forEach(video => observer.observe(video));
     </script>
