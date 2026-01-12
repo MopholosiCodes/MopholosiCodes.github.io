@@ -242,9 +242,13 @@
         // Scroll interaction
         const container = document.querySelector('.container');
         let scrollY = 0;
+        let lastScrollY = 0;
+        let scrollVelocity = 0;
         
         container.addEventListener('scroll', () => {
             scrollY = container.scrollTop;
+            scrollVelocity = (scrollY - lastScrollY) * 0.01;
+            lastScrollY = scrollY;
         });
         
         function animate() {
@@ -257,11 +261,15 @@
             particles.rotation.y += (targetRotationY - particles.rotation.y) * 0.05;
             particles.rotation.x += (targetRotationX - particles.rotation.x) * 0.05;
             
-            // Add scroll-based movement
-            particles.position.y = (scrollY * 0.002) % 10;
+            // Add scroll-based movement with velocity
+            particles.position.y = (scrollY * 0.003) % 10;
             
-            // Continuous slow rotation
-            particles.rotation.z += 0.0002;
+            // Add rotation speed based on scroll velocity
+            particles.rotation.z += 0.0002 + Math.abs(scrollVelocity) * 0.1;
+            particles.rotation.y += scrollVelocity * 0.5;
+            
+            // Dampen scroll velocity
+            scrollVelocity *= 0.95;
             
             renderer.render(scene, camera);
         }
